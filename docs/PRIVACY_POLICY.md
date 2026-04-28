@@ -1,100 +1,105 @@
-# Политика конфиденциальности — ClowTalker
+# Tandem AI Chat - Privacy Policy
 
-**Дата:** 8 апреля 2026 г.  
-**Продукт:** мобильное приложение ClowTalker (iOS).
+Effective date: 2026-04-28
 
-Настоящий документ описывает, как приложение относится к данным пользователя в **текущей версии** open-source / тестовой сборки. При публикации в App Store разместите актуальную версию политики там, где пользователь сможет её открыть (сайт, ссылка в описании, экран в приложении).
+This Privacy Policy explains how Tandem AI Chat ('the App') handles user data.
 
-## 1. Кто отвечает за обработку данных
+## 1. Who We Are
 
-Оператором по отношению к данным, которые вы вводите в приложение на своём устройстве, является **владелец/разработчик**, указанный в репозитории или в карточке приложения. Замените этот блок на свои реквизиты:
+Product: Tandem AI Chat (iOS)
 
-- **Название:** `ClowTalker`
-- **Контакт по вопросам конфиденциальности:** `sergey.cosilov@gmail.com`
+Contact for privacy inquiries:
+`supp0rt.serg@yandex.com`
 
-## 2. Какие данные обрабатываются
+## 2. Core Privacy Position
 
-### 2.1 Голос и распознавание речи
+In the current architecture, the App does not process or store your message contents on a Tandem-operated backend.
 
-Приложение запрашивает доступ к **микрофону** и использует **распознавание речи** (Apple **Speech** / связанные системные сервисы) для преобразования речи в текст.
+Most app state is stored locally on your device.
 
-- Обработка может выполняться **на устройстве и/или с участием серверов Apple** в соответствии с настройками ОС и [политикой конфиденциальности Apple](https://www.apple.com/legal/privacy/).
-- Разработчик ClowTalker **не получает** аудиозаписи и распознанный текст на свои серверы **в текущей версии кода**, если вы сами не добавите сетевую отправку.
+## 3. What Data the App Handles
 
-### 2.2 Текст задач и история
+### 3.1 Local App Data (on-device)
 
-Текст задач и время создания сохраняются **локально** на устройстве (в реализации — App Group `UserDefaults` для общего доступа с Siri/Shortcuts). Эти записи **не отправляются на серверы разработчика** приложения; они могут попадать в **резервную копию устройства** в составе данных приложения — в соответствии с настройками iCloud/локального бэкапа Apple.
+The App may store local configuration and operational data, including:
+- onboarding and settings preferences;
+- selected AI destination chat metadata;
+- monitored chat metadata;
+- parsing settings (for example prefix/examples);
+- roles/prompts and related UI state;
+- local status counters (for example successful parse usage);
+- masked diagnostic logs prepared for support export.
 
-### 2.2.1 Токен бота, chat ID и промпт (отправка в Clow / Telegram)
+### 3.2 Telegram-Related Data
 
-Если вы включаете интеграцию с ботом, приложение сохраняет **токен бота**, при необходимости **идентификатор чата Telegram (chat ID)** и **текст промпта** на устройстве.
+The App uses Telegram APIs/TDLib with your own configuration and account context.  
+Data exchanged with Telegram is processed under Telegram's policies.
 
-- **Где хранится сейчас.** **Токен бота** и **Telegram chat ID** сохраняются в **Keychain** iOS (generic password, привязка к идентификатору приложения; доступность после первой разблокировки устройства, без синхронизации в iCloud-резерв по умолчанию для этого класса записей). **Текст промпта** и связанные флаги — в **`UserDefaults`**. При обновлении со старых версий значения токена и chat ID **один раз** переносятся из `UserDefaults` в Keychain и удаляются из plist-хранилища.
+### 3.3 External Bot/Provider Data Flow
 
-- **Ограничения.** Keychain **не** даёт абсолютной защиты при компрометации устройства с разблокировкой или вредоносном коде с правами процесса приложения; это лишь штатный слой усложнения по сравнению с открытым хранением в `UserDefaults`.
+If you choose to send content to third-party bots/providers, your data is sent to those parties according to your actions and settings.
 
-- **Куда уходит по сети.** При настроенной доставке задачи приложение может обращаться по **HTTPS** к **Telegram Bot API** (`api.telegram.org`) и/или к **URL, заданному в коде сборки** (`customOutboundPOSTURLTemplate`). Запросы идут **на выбранный вами сервис**, а не на инфраструктуру разработчика ClowTalker, если вы сами не меняете код и конфигурацию.
+Those third parties are independent controllers/processors under their own terms/privacy rules.
 
-- **Подтягивание chat ID (`getUpdates`).** По желанию пользователя приложение может выполнить запрос **`getUpdates`** к Telegram: в ответ приходит **очередь апдейтов бота** (в т.ч. могут содержаться тексты сообщений и данные чатов третьих лиц, если боту писали несколько человек). Приложение использует ответ **только** чтобы вычислить один числовой **chat ID** для личного чата; сырой ответ **не** сохраняется на диск и **не** пересылается разработчику приложения. Подробно о рисках (общий бот, webhook, токен в URL) — в **`SECURITY.md`**, раздел про `getUpdates`.
+## 4. What We Do Not Do (Current Architecture)
 
-### 2.3 Диагностика и аналитика
+The App operator does not:
+- run a Tandem backend that stores your message contents;
+- use Telegram message data from this App for AI/ML model training or fine-tuning.
 
-В текущей реализации репозитория **нет** встроенной аналитики третьих сторон. При добавлении SDK обновите эту политику и список обработчиков данных.
+## 5. AI/ML Training Restriction
 
-### 2.4 Ключи, токены и секреты на устройстве пользователя
+Telegram message data processed via this App is not used by the App operator for model training/fine-tuning.
 
-Секреты, которые вы вводите в приложение (в первую очередь **токен бота**), остаются **под вашим контролем** на устройстве. **Штатная** версия ClowTalker **не предназначена** для передачи этих секретов на **серверы разработчика** приложения; они используются для запросов **к Telegram или к вашему HTTPS-endpoint**, как описано в п. 2.2.1.
+If you transfer data to third-party bots/providers, they may apply their own retention/training policies. You are responsible for that transfer.
 
-Подробнее о модели угроз и ответственности — в **`SECURITY.md`** (раздел «Хранение ключей и секретов на стороне пользователя»). При добавлении облачной синхронизации секретов или собственного бэкенда разработчика обновите оба документа.
+## 6. Logs and Support Exports
 
-## 3. Цели обработки
+The App can generate masked log exports for support workflows.
 
-- включить голосовой ввод задач;
-- показать распознаванный текст в интерфейсе;
-- хранить историю задач на устройстве для удобства пользователя;
-- при вашей настройке — передать текст задачи выбранному боту (Telegram или вашему HTTPS API) с использованием сохранённого на устройстве токена.
+- Logs are masked before export where implemented.
+- You control whether to send support email and to whom.
+- Sending email uses your device mail configuration and selected recipient.
 
-## 4. Правовые основания (для пользователей в ЕЭЗ/UK — ориентир)
+## 7. Legal Basis (where applicable)
 
-При необходимости согласуйте с юристом формулировки. Обычно для локального распознавания и локального хранения опираются на **исполнение функций приложения** и/или **согласие** (через системные запросы доступа).
+Depending on jurisdiction, processing may rely on:
+- contract/performance of app functionality;
+- legitimate interests in app operation/safety;
+- your consent for optional permissions/features.
 
-## 5. Хранение и сроки
+## 8. Data Retention
 
-- История задач на устройстве **ограничена по объёму** (в текущей версии кода сохраняются **не более 100** последних записей; более старые удаляются автоматически).
-- Данные хранятся **на устройстве**, пока вы их не удалите (например, функцией очистки истории в приложении) или пока не удалите приложение.
-- После удаления приложения локальные данные обычно удаляются вместе с ним (если не используется отдельное резервное копирование устройства).
+Local app data remains on your device until:
+- you delete/reset it in-app (where available),
+- or you remove the app.
 
-## 6. Передача третьим лицам
+Third-party services (Telegram, bots/providers) apply their own retention rules.
 
-- **Разработчик приложения (оператор по п. 1)** в штатной сборке из репозитория **не получает** ваши задачи, токены и историю на свои серверы.
+## 9. Security
 
-- **Apple** может обрабатывать голос/речь в рамках платформы iOS (см. п. 2.1).
+The App applies reasonable technical measures for local operation, but no client software can guarantee absolute security.
 
-- **Telegram** (или иной сервис по **вашему** выбору и настройкам) получает данные, которые приложение отправляет при доставке задачи (текст сообщения, идентификатор чата и т.д. в соответствии с API), а также обрабатывает **токен бота** на стороне своей инфраструктуры при вызове Bot API — в соответствии с [политикой Telegram](https://telegram.org/privacy) и условиями использования сервиса.
+You are responsible for:
+- protecting your device,
+- protecting account credentials and API access,
+- avoiding unsafe sharing of sensitive data.
 
-- При указании **собственного HTTPS URL** в коде сборки данные уходят **тому оператору**, которому принадлежит этот endpoint; ответственность за его политику конфиденциальности лежит на владельце сервиса и/или на вас как на владельце сборки.
+## 10. Children
 
-## 7. Права пользователя
+The App is not intended for unlawful use by minors under the age required by applicable law.  
+If required by your jurisdiction/business model, add age-gating and parental consent controls.
 
-В зависимости от региона вы можете иметь право на доступ, исправление, удаление, ограничение обработки, возражение, переносимость данных и подачу жалобы в надзорный орган. Для запросов используйте контакт из п. 1.
+## 11. International Transfers
 
-Технически на устройстве вы можете:
+If you use third-party services, data may be processed in jurisdictions outside your country under those providers' infrastructure/policies.
 
-- отозвать доступ к микрофону и распознаванию речи в **Настройки → Конфиденциальность**;
-- удалить данные приложения или переустановить приложение.
+## 12. Changes to this Policy
 
-## 8. Дети
+This Policy may be updated from time to time.  
+Material changes should be published with a new effective date.
 
-Приложение не ориентировано на сбор данных детей младше 13 лет (или возраста по закону вашей страны). При целевой аудитории детей потребуется отдельная оценка и согласия.
+## 13. Contact
 
-## 9. Изменения политики
-
-При существенных изменениях в функциональности обновите дату и текст политики и уведомите пользователей удобным способом (экран в приложении, описание в магазине).
-
-## 10. Контакт
-
-**`sergey.cosilov@gmail.com`**
-
----
-
-*Шаблон. Согласуйте с юристом перед публикацией в сторе или для B2B.*
+Privacy contact:
+`supp0rt.serg@yandex.com`
