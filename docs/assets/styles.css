@@ -190,6 +190,80 @@ a:hover {
   font-size: 0.95rem;
 }
 
+.policy-main {
+  padding: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.policy-card {
+  background: linear-gradient(145deg, rgba(20, 26, 36, 0.95), rgba(20, 26, 36, 0.72));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  box-shadow: var(--shadow);
+}
+
+.policy-header {
+  margin-bottom: 2rem;
+}
+
+.effective-date {
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.policy-card h1 {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.policy-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 68ch;
+}
+
+.policy-card section {
+  border-top: 1px solid var(--border);
+  padding-top: 1.4rem;
+  margin-top: 1.4rem;
+}
+
+.policy-card h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.policy-card h3 {
+  margin: 1.1rem 0 0.45rem;
+  color: var(--text);
+  font-size: 1.02rem;
+}
+
+.policy-card p,
+.policy-card li {
+  color: var(--muted);
+}
+
+.policy-card p {
+  margin: 0.55rem 0;
+}
+
+.policy-card ul {
+  margin: 0.55rem 0 0.85rem;
+  padding-inline-start: 1.35rem;
+}
+
+.contact-email {
+  font-weight: 700;
+  word-break: break-word;
+}
+
 .hero {
   padding: clamp(2.5rem, 6vw, 4.5rem) 0 2rem;
 }

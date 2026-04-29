@@ -22,6 +22,7 @@ Most app state is stored locally on your device.
 ### 3.1 Local App Data (on-device)
 
 The App may store local configuration and operational data, including:
+
 - onboarding and settings preferences;
 - selected AI destination chat metadata;
 - monitored chat metadata;
@@ -44,6 +45,7 @@ Those third parties are independent controllers/processors under their own terms
 ## 4. What We Do Not Do (Current Architecture)
 
 The App operator does not:
+
 - run a Tandem backend that stores your message contents;
 - use Telegram message data from this App for AI/ML model training or fine-tuning.
 
@@ -64,6 +66,7 @@ The App can generate masked log exports for support workflows.
 ## 7. Legal Basis (where applicable)
 
 Depending on jurisdiction, processing may rely on:
+
 - contract/performance of app functionality;
 - legitimate interests in app operation/safety;
 - your consent for optional permissions/features.
@@ -71,6 +74,7 @@ Depending on jurisdiction, processing may rely on:
 ## 8. Data Retention
 
 Local app data remains on your device until:
+
 - you delete/reset it in-app (where available),
 - or you remove the app.
 
@@ -81,6 +85,7 @@ Third-party services (Telegram, bots/providers) apply their own retention rules.
 The App applies reasonable technical measures for local operation, but no client software can guarantee absolute security.
 
 You are responsible for:
+
 - protecting your device,
 - protecting account credentials and API access,
 - avoiding unsafe sharing of sensitive data.
