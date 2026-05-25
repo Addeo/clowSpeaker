@@ -227,6 +227,17 @@ a:hover {
   max-width: 68ch;
 }
 
+.policy-notice {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(94, 234, 212, 0.06);
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 72ch;
+}
+
 .policy-card section {
   border-top: 1px solid var(--border);
   padding-top: 1.4rem;

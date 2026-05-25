@@ -42,8 +42,10 @@
     <main id="main" class="policy-main wrap">
       <article class="policy-card">
         <header class="policy-header">
-          <p class="effective-date">प्रभावी तिथि: 2026-04-28</p>
+          <p class="effective-date">प्रभावी तिथि: 2026-05-25</p>
           <h1>Tandem AI Chat - गोपनीयता नीति</h1>
+          
+          <p class="policy-notice"><strong>Update 2026-05-25:</strong> Sections 1, 3.4, 5, and 7 were expanded for App Store compliance. Please read the <a href="../en/">English version</a> for the authoritative text until this translation is updated.</p>
           <p class="policy-lead">यह गोपनीयता नीति बताती है कि Tandem AI Chat (“ऐप”) उपयोगकर्ता डेटा को कैसे संभालता है।</p>
         </header>
         <section>
@@ -51,6 +53,13 @@
           <p>उत्पाद: Tandem AI Chat (iOS)</p>
           <p>गोपनीयता संबंधी पूछताछ के लिए संपर्क:</p>
           <p><a class="contact-email" href="mailto:supp0rt.serg@yandex.com">supp0rt.serg@yandex.com</a></p>
+
+          <p>Legal links:</p>
+          <ul>
+            <li>Terms of Use (EULA): <a href="https://addeo.github.io/clowSpeakerT/docs/">https://addeo.github.io/clowSpeakerT/docs/</a></li>
+            <li>Privacy Policy (this document): <a href="https://addeo.github.io/clowSpeaker/docs/">https://addeo.github.io/clowSpeaker/docs/</a></li>
+          </ul>
+          <p>Auto-renewable subscriptions are sold through the Apple App Store. The subscription title, length, and price are shown in the App before you purchase.</p>
         </section>
         <section>
           <h2>2. मुख्य गोपनीयता स्थिति</h2>
@@ -76,6 +85,37 @@
           <h3>3.3 बाहरी bots/providers डेटा प्रवाह</h3>
           <p>यदि आप सामग्री को तृतीय-पक्ष bots/providers को भेजना चुनते हैं, तो आपकी कार्रवाइयों और सेटिंग्स के अनुसार आपका डेटा उन पक्षों को भेजा जाता है।</p>
           <p>वे तृतीय पक्ष अपनी शर्तों/गोपनीयता नियमों के तहत स्वतंत्र नियंत्रक/प्रोसेसर हैं।</p>
+
+          <h3>3.4 Third-Party AI Services (User-Selected)</h3>
+          <p>The App can route Telegram message content to <strong>third-party AI bots or providers that you choose</strong> in Telegram (for example, AI bots you add or select as a destination chat). The App operator does <strong>not</strong> operate those third-party AI services.</p>
+          <p><strong>What data may be sent (when you enable forwarding/routing):</strong></p>
+          <ul>
+            <li>message text and attachments or metadata needed to deliver the content you choose to send;</li>
+            <li>context you configure in the App (for example monitored chat, destination chat, parsing prefix, role/prompt text);</li>
+            <li>Telegram identifiers required for delivery (for example chat IDs, bot usernames), as handled by Telegram/TDLib.</li>
+          </ul>
+          <p><strong>Who receives the data:</strong></p>
+          <ul>
+            <li>the <strong>specific third-party bot or AI provider account you select</strong> in the App or in Telegram;</li>
+            <li><strong>Telegram</strong> as the transport platform, under Telegram&#x27;s policies;</li>
+            <li><strong>not</strong> the App operator&#x27;s own backend (the App does not run a server that stores your message contents).</li>
+          </ul>
+          <p><strong>How the App collects and sends data:</strong></p>
+          <ul>
+            <li>on your device from your Telegram session via TDLib/API;</li>
+            <li>when <strong>you</strong> configure destinations and enable or trigger forwarding or sending flows supported by the App.</li>
+          </ul>
+          <p><strong>Your permission and control:</strong></p>
+          <ul>
+            <li>the App presents disclosures before you enable features that share content with third-party AI destinations, and you must confirm in the App;</li>
+            <li>you can change or disable destinations and related settings at any time;</li>
+            <li>you are responsible for reviewing each third-party bot or provider&#x27;s terms and privacy policy before sending personal or sensitive data.</li>
+          </ul>
+          <p><strong>Third-party protection:</strong></p>
+          <ul>
+            <li>third-party AI providers may process data in other countries and may not offer the same protections described in this Policy for the App operator;</li>
+            <li>verify their policies before sharing personal data.</li>
+          </ul>
         </section>
         <section>
           <h2>4. हम क्या नहीं करते (मौजूदा आर्किटेक्चर)</h2>
@@ -87,8 +127,13 @@
         </section>
         <section>
           <h2>5. AI/ML प्रशिक्षण प्रतिबंध</h2>
-          <p>इस App के माध्यम से प्रोसेस किया गया Telegram संदेश डेटा App ऑपरेटर द्वारा मॉडल प्रशिक्षण/फ़ाइन-ट्यूनिंग के लिए उपयोग नहीं किया जाता है।</p>
-          <p>यदि आप डेटा को तृतीय-पक्ष bots/providers को ट्रांसफ़र करते हैं, तो वे अपनी स्वयं की संरक्षण/प्रशिक्षण नीतियाँ लागू कर सकते हैं। उस ट्रांसफ़र के लिए आप ज़िम्मेदार हैं।</p>
+
+          <p><strong>No-training commitment (App operator):</strong></p>
+          <p>Telegram message data processed by this app must not be used to train or fine-tune AI/ML models by the app operator.</p>
+          <p>The App operator does not use Telegram message content from this App for model training or fine-tuning.</p>
+          <p><strong>Third-party services:</strong></p>
+          <p>If you forward or send data to third-party bots or providers (including third-party AI services on Telegram), those parties may apply their own retention, inference, or training policies. You are responsible for that transfer and for any permissions required by those services.</p>
+
         </section>
         <section>
           <h2>6. लॉग और सपोर्ट एक्सपोर्ट</h2>
